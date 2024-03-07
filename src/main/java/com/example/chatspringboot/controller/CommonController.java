@@ -10,4 +10,9 @@ public class CommonController {
 	public String getHomepage() {
 		return "index";
 	}
+	
+	@GetMapping("/start")
+	public String getStartChatPage() {
+		return "start";
+	}
 }

@@ -12,6 +12,6 @@
 		<p>Start chat? Click <a href="/start">here</a></p>
 	</div>
 	
-	<footer>ChatSpringBoot &copy; 2024. Made with love in Machang.</footer>
+	<footer><a href="/">ChatSpringBoot</a> &copy; 2024. Made with love in Machang.</footer>
 </body>
 </html>

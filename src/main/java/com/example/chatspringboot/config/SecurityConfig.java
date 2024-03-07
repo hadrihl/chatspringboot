@@ -14,6 +14,7 @@ public class SecurityConfig {
 		http
 			.authorizeHttpRequests()
 				.antMatchers(HttpMethod.GET, "/").permitAll()
+				.antMatchers(HttpMethod.GET, "/start").permitAll()
 				.anyRequest().authenticated();
 		
 		return http.build();
