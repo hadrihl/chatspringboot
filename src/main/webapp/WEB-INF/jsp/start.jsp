@@ -12,7 +12,7 @@
 	<div class="container">
 		<h1>Start</h1>
 		
-		<form:form action="/start" method="post" modelattribute="user">
+		<form:form action="/start" method="post">
 			<div class="form-group">
 				<label for="username"></label>
 				<input type="text" id="username" name="username" placeholder="Enter your username" required />
