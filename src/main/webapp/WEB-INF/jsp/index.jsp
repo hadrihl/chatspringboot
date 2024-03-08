@@ -9,6 +9,7 @@
 <body>
 	<div class="container">
 		<h1>ChatSpringBoot</h1>
+		<p><a href="/login">Login</a></p>
 		<p>Start chat? Click <a href="/start">here</a></p>
 	</div>
 	

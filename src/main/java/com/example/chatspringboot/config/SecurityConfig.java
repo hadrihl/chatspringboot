@@ -23,7 +23,14 @@ public class SecurityConfig {
 				.antMatchers(HttpMethod.GET, "/start").permitAll()
 				.antMatchers(HttpMethod.POST, "/start").permitAll()
 				.antMatchers(HttpMethod.GET, "/chat").permitAll()
-				.anyRequest().authenticated();
+				.anyRequest().authenticated()
+				.and()
+			.formLogin()
+				.loginPage("/login")
+				.loginProcessingUrl("/login")
+				.usernameParameter("username")
+				.defaultSuccessUrl("/chat")
+				.permitAll();
 		
 		return http.build();
 	}

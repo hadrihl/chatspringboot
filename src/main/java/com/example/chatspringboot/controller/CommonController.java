@@ -53,4 +53,9 @@ public class CommonController {
 	public String getChatPage() {
 		return "chat";
 	}
+	
+	@GetMapping("/login")
+	public String getLoginPage() {
+		return "login";
+	}
 }
