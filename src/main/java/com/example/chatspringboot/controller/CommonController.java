@@ -29,15 +29,23 @@ public class CommonController {
 	
 	@PostMapping("/start")
 	public String startChat(Model model, @ModelAttribute("user") User user, @RequestParam("cpassword") String cpassword) {
-		User newUser = userService.registerUser(user.getUsername());
 		
-		if(newUser == null) {
-			model.addAttribute("errmsg", "username already exists. Choose a new one.");
-			return "start";
+		if(user.getPassword().equals(cpassword)) {
+			System.out.println("same2");
+			User newUser = userService.registerUser(user);
+			
+			if(newUser == null) {
+				model.addAttribute("errmsg", "username already exists. Choose a new one.");
+				return "start";
+			} else {
+				model.addAttribute("msg", "You may now start chat.");
+				model.addAttribute("username", newUser.getUsername());
+				return "chat";
+			}
+			
 		} else {
-			model.addAttribute("msg", "You may now start chat.");
-			model.addAttribute("username", newUser.getUsername());
-			return "chat";
+			model.addAttribute("errmsg", "Password not match. Please try again.");
+			return "start";
 		}
 	}
 	

@@ -39,13 +39,11 @@ public class User {
 	private List<Role> roles = new ArrayList<Role>();
 	
 	//Constructors
-	
-	public User(String username) {
-		this.username = username;
+	public User() {
+		super();
 	}
 	
 	//Getters and Setters
-
 	public Integer getId() {
 		return id;
 	}
