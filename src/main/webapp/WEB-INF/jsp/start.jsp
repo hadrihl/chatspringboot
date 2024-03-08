@@ -12,10 +12,22 @@
 	<div class="container">
 		<h1>Start</h1>
 		
-		<form:form action="/start" method="post">
-			<div class="form-group">
+		<form:form action="/start" method="post" modelattribute="user">
+			<div class="form-group" style="margin-bottom: 5px;">
 				<label for="username"></label>
 				<input type="text" id="username" name="username" placeholder="Enter your username" required />
+			</div>
+			<div class="form-group" style="margin-bottom: 5px;">
+				<label for="email"></label>
+				<input type="email" id="email" name="email" placeholder="Enter your email" required />
+			</div>
+			<div class="form-group" style="margin-bottom: 5px;">
+				<label for="password"></label>
+				<input type="password" id="password" name="password" placeholder="Enter password" required />
+			</div>
+			<div class="form-group" style="margin-bottom: 5px;">
+				<label for="cpassword"></label>
+				<input type="password" id="cpassword" name="cpassword" placeholder="Confirm password" required />
 			</div>
 			<c:if test="${not empty errmsg}">
 			<div class="form-group">
@@ -25,7 +37,7 @@
 			<c:if test="${not empty msg}">
 				<p style="color: green;">${msg}</p>
 			</c:if>
-			<div class="form-group">
+			<div class="form-group" style="margin-top: 5px; margin-bottom: 20px;">
 				<button type="submit">Enter</button>
 			</div>
 		</form:form>

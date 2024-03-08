@@ -28,15 +28,15 @@ public class CommonController {
 	}
 	
 	@PostMapping("/start")
-	public String startChat(Model model, @RequestParam("username") String username) {
-		User user = userService.registerUser(username);
+	public String startChat(Model model, @ModelAttribute("user") User user, @RequestParam("cpassword") String cpassword) {
+		User newUser = userService.registerUser(user.getUsername());
 		
-		if(user == null) {
+		if(newUser == null) {
 			model.addAttribute("errmsg", "username already exists. Choose a new one.");
 			return "start";
 		} else {
 			model.addAttribute("msg", "You may now start chat.");
-			model.addAttribute("username", username);
+			model.addAttribute("username", newUser.getUsername());
 			return "chat";
 		}
 	}
