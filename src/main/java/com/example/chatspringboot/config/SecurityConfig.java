@@ -47,6 +47,11 @@ public class SecurityConfig {
 				.loginProcessingUrl("/login")
 				.usernameParameter("username")
 				.defaultSuccessUrl("/chat")
+				.permitAll()
+				.and()
+			.logout()
+				.invalidateHttpSession(true)
+				.logoutSuccessUrl("/")
 				.permitAll();
 		
 		return http.build();
