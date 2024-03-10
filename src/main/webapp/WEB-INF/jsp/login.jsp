@@ -11,7 +11,7 @@
 <body>
 	<div class="container">
 		<h1>Login</h1>
-		<form:form>
+		<form:form action="/login" method="post">
 			<div class="form-group" style="margin-bottom: 5px;">
 				<label for="username"></label>
 				<input type="text" id="username" name="username" placeholder="Enter username" />

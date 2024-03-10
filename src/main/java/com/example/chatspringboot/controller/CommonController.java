@@ -1,6 +1,8 @@
 package com.example.chatspringboot.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,9 +40,8 @@ public class CommonController {
 				model.addAttribute("errmsg", "username already exists. Choose a new one.");
 				return "start";
 			} else {
-				model.addAttribute("msg", "You may now start chat.");
 				model.addAttribute("username", newUser.getUsername());
-				return "chat";
+				return "redirect:login";
 			}
 			
 		} else {
@@ -50,7 +51,8 @@ public class CommonController {
 	}
 	
 	@GetMapping("/chat")
-	public String getChatPage() {
+	public String getChatPage(Model model, @AuthenticationPrincipal UserDetails loggedinUser) {
+		model.addAttribute("username", loggedinUser.getUsername());
 		return "chat";
 	}
 	

@@ -12,6 +12,6 @@
 		<c:if test="${not empty msg}"><p>${msg}</p></c:if>
 	</div>
 	
-	<footer><a href="/">ChatSpringBoot</a> &copy; 2024. Made with love in Machang</footer>
+	<footer><a href="/">ChatSpringBoot</a> &copy; 2024. Made with love in Machang.</footer>
 </body>
 </html>
