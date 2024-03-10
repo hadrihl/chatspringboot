@@ -9,9 +9,28 @@
 <title>ChatSpringBoot | Chat</title>
 </head>
 <body>
-	<div class="container">
+	<div class="container" style="margin-bottom: 30px;">
 		<h1>Hi, ${username}</h1>
-		<c:if test="${not empty msg}"><p>${msg}</p></c:if>
+		<c:if test="${not empty users}">
+		<table>
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Username</th>
+					<th>#action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach var="user" items="${users}" varStatus="row">
+				<tr>
+					<td>${row.index+1}</td>
+					<td>${user.username}</td>
+					<td><a href="/chat/${user.username}">Chat</a></td>
+				</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+		</c:if>
 	</div>
 	
 	<div class="container" style="margin-bottom: 10px;">

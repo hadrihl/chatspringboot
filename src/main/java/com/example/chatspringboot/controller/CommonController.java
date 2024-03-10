@@ -1,5 +1,7 @@
 package com.example.chatspringboot.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -52,7 +54,9 @@ public class CommonController {
 	
 	@GetMapping("/chat")
 	public String getChatPage(Model model, @AuthenticationPrincipal UserDetails loggedinUser) {
+		List<User> users = userService.getAllUsersByUsernameNot(loggedinUser.getUsername());
 		model.addAttribute("username", loggedinUser.getUsername());
+		model.addAttribute("users", users);
 		return "chat";
 	}
 	

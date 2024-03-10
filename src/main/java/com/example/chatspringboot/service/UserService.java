@@ -1,5 +1,7 @@
 package com.example.chatspringboot.service;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,6 +45,11 @@ public class UserService {
 			newUser.addRoles(roleRepository.findById(1).get()); // default role: USER
 			return userRepository.save(newUser);
 		}
+	}
+	
+	public List<User> getAllUsersByUsernameNot(String username) {
+		List<User> users = userRepository.findAllByUsernameNot(username);
+		return users;
 	}
 
 }
